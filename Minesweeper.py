@@ -33,14 +33,12 @@ class MinesweeperButton:
                 self.button.config(text=num, fg=colors[num])
         else:
             self.button.config(text = "*", fg="black", bg="red")
-            for x in range(0, 10):
-                for y in range(0, 10):
-                    if buttons[x][y].visited == False:
-                        buttons[x][y].reveal(buttons[x][y])
+            reveal_all()
+
 
     def flag(self, button):
         global bombsleft
-        if (self.visited == False):
+        if self.visited == False:
             if self.button['text'] == "X":
                 self.button.config(text=" ")
                 bombsleft = bombsleft + 1
@@ -57,7 +55,7 @@ def reset():
     generate()
     for x in range(0, 10):
         for y in range(0, 10):
-            buttons[x][y].button.config(text = " ", bg = "lightblue")
+            buttons[x][y].button.config(text = " ", bg = "lightblue", fg = "black")
             buttons[x][y].visited = False
     create()
     bombsleft = maxbombs
@@ -104,10 +102,10 @@ def generate():
     bombsleft = numbombs
 
 def reveal_all():
-    global buttons
     for x in range(0, 10):
         for y in range(0, 10):
-            buttons[x][y].reveal(buttons[x][y])
+            if buttons[x][y].visited == False:
+                buttons[x][y].reveal(buttons[x][y])
 
 root = Tk()
 root.title("Minesweeper")
