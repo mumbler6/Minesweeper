@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import font
 from random import randint
+
 dirX = [-1, -1, 0, 1, 1, 1, 0, -1]
 dirY = [0, 1, 1, 1, 0, -1, -1, -1]
 colors = ["black", "green", "blue", "orange", "red", "purple", "purple", "purple", "purple"]
@@ -13,6 +14,7 @@ class MinesweeperButton:
         self.x = x
         self.y = y
         self.visited = visited
+
     def reveal(self, button):
         self.button.config(bg="white")
         self.visited = True
@@ -35,6 +37,7 @@ class MinesweeperButton:
                 for y in range(0, 10):
                     if buttons[x][y].visited == False:
                         buttons[x][y].reveal(buttons[x][y])
+
     def flag(self, button):
         global bombsleft
         if (self.visited == False):
@@ -46,6 +49,7 @@ class MinesweeperButton:
                 self.button.config(text="X")
                 bombsleft = bombsleft - 1
                 BombsLeft.config(text = "X: "+str(bombsleft))
+
 def reset():
     global minefield
     global prox
@@ -75,6 +79,7 @@ def create():
                     if inRange(newX, newY) and minefield[newX][newY]:
                         number += 1
                 prox[x][y] = number
+
 def generate():
     global maxbombs
     global minefield
@@ -97,7 +102,6 @@ def generate():
         minefield.append(subfield)
         prox.append(subprox)
     bombsleft = numbombs
-
 
 def reveal_all():
     global buttons
