@@ -49,16 +49,13 @@ class MinesweeperButton:
                 BombsLeft.config(text = "X: "+str(bombsleft))
 
 def reset():
-    global minefield
-    global prox
-    global bombsleft
     generate()
     for x in range(0, 10):
         for y in range(0, 10):
             buttons[x][y].button.config(text = " ", bg = "lightblue", fg = "black")
             buttons[x][y].visited = False
+
     create()
-    bombsleft = maxbombs
     BombsLeft.config(text="X: " + str(bombsleft))
 
 def inRange(x, y):
