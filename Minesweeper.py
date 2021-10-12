@@ -6,7 +6,7 @@ from random import randint
 dirX = [-1, -1, 0, 1, 1, 1, 0, -1]
 dirY = [0, 1, 1, 1, 0, -1, -1, -1]
 colors = ["black", "green", "blue", "orange", "red", "purple", "purple", "purple", "purple"]
-# please help 
+
 class MinesweeperButton:
 
     def __init__(self, x, y, visited):
