@@ -7,7 +7,7 @@ dirX = [-1, -1, 0, 1, 1, 1, 0, -1]
 dirY = [0, 1, 1, 1, 0, -1, -1, -1]
 colors = ["black", "green", "blue", "orange", "red", "purple", "purple", "purple", "purple"]
 
-class MinesweeperButton:
+class MinesweeperButton: # button 
 
     def __init__(self, x, y, visited):
         self.button = Button(root, height = 1, width = 2, bg="lightblue")
